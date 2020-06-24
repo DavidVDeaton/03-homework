@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity = "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin = "anonymous">
+    <link rel = "stylesheet" href = "style.css">
+    <meta name = "viewport" content = "width-device-width, initial-scale=1.0">
+
+  </head>
+
+  <body>
+
+
+    <h1>Password Generator</h1>
+
+    <br>
+
+    <form class = "container">
+        <div>
+            <label for = "exampleFormControlTextarea1" ><h3>Generate a Password<h3></label>
+            <textarea class = "form-control" id = "exampleFormControlTextarea1" rows = "3" ></textarea>
+  
+                <br>
+
+            <button type="button" class="btn btn-primary btn-lg">Generate Password</button>
+            <button type="button" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
+        </div>
+    </form>
+
+    <script>
+
+    // Character Array
+    var special = ["~", "!", "@", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "[", "]", "^", "_", "`", "{", "|", "}"];
+    var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+    // Creates a prompt to ask user how many characters they would lke their password to be.
+    var numChar = parseInt(prompt("How many characters would you like your password to contain?"));
+
+    if (numChar < 8) {
+        alert()
+    }
+
+    // Creates confirm boxes to determine which arrays to include in password.
+    var confirmSpecial = confirm ("Click OK to include special characters.");
+    var confirmNum = confirm("Click OK to include numeric characters.");
+    var confirmLower = confirm("Click OK to include lowercase characters.");
+    var confirmUpper = confirm("Click OK to include uppercase characters.");
+
+
+    </script>
+
+  </body>
+</html>
