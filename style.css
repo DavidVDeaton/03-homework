@@ -3,9 +3,12 @@ body {
     background-color: grey;
 }
 
-p {
+textarea {
+    text-align: center;
     background-color: whitesmoke;
     border-style: solid;
+    border-width: 3px;
+    border-color: black;
     height: 180px;
     width: 60%;
     margin-left:auto;
