@@ -1,19 +1,5 @@
 // Character Arrays
-var special = ["~", "!", "@", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "[", "]", "^", "_", "`", "{", "|", "}"];
-var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var all = special.concat(num, lower, upper);
-var noSpecial = num.concat(lower, upper);
-var noNum = special.concat(lower, upper);
-var noLower = special.concat(num, upper);
-var noUpper = special.concat(lower, num);
-var specialNum = special.concat(num);
-var specialLower = special.concat(lower);
-var specialUpper = special.concat(upper);
-var numLower = num.concat(lower);
-var numUpper = num.concat(upper);
-var lowerUpper = lower.concat(upper);
+var empty = [];
 
             
 // Creates a prompt to ask user how many characters user would like their password to be and confirm which characters to include in password.  
@@ -38,70 +24,51 @@ var passLength = prompt( "How many characters would you like your password to co
      var confirmUpper = confirm( "Click OK to include uppercase characters." );
     }
 
-// Based on user response selects appropriate array to draw password from.
-    if (confirmSpecial === true && confirmNum === true && confirmLower === true && confirmUpper === true) {        
-        var passwordChar = all;
-        }
+// Based on user response adds appropriate characters to array to draw password from.
+    if (confirmSpecial === true) {
+        var special = ["~", "!", "@", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "[", "]", "^", "_", "`", "{", "|", "}"];
+    }
 
-    else if (confirmSpecial === false && confirmNum === true && confirmLower === true && confirmUpper === true) {        
-        var passwordChar = noSpecial;
-        }
-      
-    else if (confirmSpecial === true && confirmNum === false && confirmLower === true && confirmUpper === true) {        
-        var passwordChar = noNum;
-        }
+    else {
+        var special = empty;
+    }
 
-    else if (confirmSpecial === true && confirmNum === true && confirmLower === false && confirmUpper === true) {        
-        var passwordChar = noLower;
-        }
-      
-    else if (confirmSpecial === true && confirmNum === true && confirmLower === true && confirmUpper === false) {        
-        var passwordChar = noUpper;
-        }
+    if (confirmNum === true) {
+        var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
 
-    else if (confirmSpecial === true && confirmNum === true && confirmLower === false && confirmUpper === false) {        
-        var passwordChar = specialNum;
-        }
-      
-    else if (confirmSpecial === true && confirmNum === false && confirmLower === true && confirmUpper === false) {        
-        var passwordChar = specialLower;
-        }
+    else {
+        var num = empty;
+    }
 
-    else if (confirmSpecial === true && confirmNum === false && confirmLower === false && confirmUpper === true) {        
-        var passwordChar = specialUpper;
-        }
-      
-    else if (confirmSpecial === false && confirmNum === true && confirmLower === true && confirmUpper === false) {        
-        var passwordChar = numLower;
-        }
+    if (confirmLower === true) {
+        var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    }
 
-    else if (confirmSpecial === false && confirmNum === true && confirmLower === false && confirmUpper === true) {        
-        var passwordChar = numUpper;
-        }
-      
-    else if (confirmSpecial === false && confirmNum === false && confirmLower === true && confirmUpper === true) {        
-        var passwordChar = lowerUpper;
-        }
+    else {
+        var lower = empty;
+    }
 
-    else if (confirmSpecial === true && confirmNum === false && confirmLower === false && confirmUpper === false) {        
-        var passwordChar = special;
-        }
-      
-    else if (confirmSpecial === false && confirmNum === true && confirmLower === false && confirmUpper === false) {        
-        var passwordChar = num;
-        }
+    if (confirmUpper === true) {
+        var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    }
 
-    else if (confirmSpecial === false && confirmNum === false && confirmLower === true && confirmUpper === false) {        
-        var passwordChar = lower;
-        }
-      
-    else if (confirmSpecial === false && confirmNum === false && confirmLower === false && confirmUpper === true) {        
-        var passwordChar = upper;
-        }
+    else {
+        var upper = empty;
+    }
 
-    else if (confirmSpecial === false && confirmNum === false && confirmLower === false && confirmUpper === false) {        
+    if (confirmSpecial === false && confirmNum === false && confirmLower === false && confirmUpper === false) {        
         alert( "CANNOT CREATE PASSWORD! Please OK at least one group of characters. Try Again." );
         }
+
+    passwordChar = special.concat(num, lower, upper);
+
+//Used to verify code is working properly
+    console.log(passwordChar);
+    console.log(special);
+    console.log(num);
+    console.log(lower);
+    console.log(upper);
 
 //Based on user response generates random password of the desired length 
         for (i=0; i < passLength ; i++) {
@@ -120,8 +87,6 @@ var passLength = prompt( "How many characters would you like your password to co
 document.getElementById("copyBtn").addEventListener("click", function copyToClipboard (){
 
 var copyPassword = document.getElementById("password");
-    
-console.log(copyPassword);
     
 copyPassword.select();
 
