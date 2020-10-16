@@ -25,7 +25,7 @@ Please visit [https://davidvdeaton.github.io/PasswordGenerator/](https://davidvd
 ![Video Demo](assets/passwordGenerator.gif)
 
 # Technology
-The following technology have been used for this project:
+The following technologies have been used for this project:
 
   1. HTML
   2. CSS
