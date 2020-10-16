@@ -1,7 +1,6 @@
 // Character Arrays
 var empty = [];
 
-            
 // Creates a prompt to ask user how many characters user would like their password to be and confirm which characters to include in password.  
 document.getElementById("generateBtn").addEventListener("click", function generatePassword (){
 
